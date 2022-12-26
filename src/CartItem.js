@@ -1,31 +1,56 @@
-import React from "react";
+import React from 'react';
 
-class CartItem extends React.Component{
-    render(){
-        return(
-            <div className="cart-item">
-                <div classNAme="left-block">
-                    <img style={styles.image}/>
-                </div>
-            <div className="right-block">
-                <div style={{fontSize:25}}>Phone</div>
-                <div style={{color:"grey"}}>Rs 2000</div>
-                <div  style={{color:"grey"}}>Qty:1</div>
-                <div className="cart-item-actions">
-                    {}
-                </div>
-            </div>
-            </div>
-        ) 
-    }
+const CartItem = (props) => {
+  const { price, title, qty } = props.product;
+  const {
+    product,
+    onIncreaseQuantity,
+    onDecreaseQuantity,
+    onDeleteProduct
+  } = props;
+  return (
+    <div className="cart-item">
+      <div className="left-block">
+        <img style={styles.image} src={product.img} />
+      </div>
+      <div className="right-block">
+        <div style={ { fontSize: 25 } }>{title}</div>
+        <div style={ { color: '#777' } }>Rs: {price} </div>
+        <div style={ { color: '#777' } }>Qty: {qty} </div>
+        <div className="cart-item-actions">
+          {/* Buttons */}
+          <img
+            alt="increase"
+            className="action-icons"
+            src="https://cdn-icons-png.flaticon.com/512/3303/3303893.png"
+            onClick={() => onIncreaseQuantity(product)}
+          />
+          <img
+            alt="decrease"
+            className="action-icons"
+            src="https://cdn-icons-png.flaticon.com/128/1828/1828906.png"
+            onClick={() => onDecreaseQuantity(product)}
+          />
+          <img
+            alt="delete"
+            className="action-icons"
+            src="https://t4.ftcdn.net/jpg/00/98/26/11/240_F_98261175_Sv69O3rZsHApYkjAdrWbgQixYHwyZyOr.jpg
+            "
+            onClick={() => onDeleteProduct(product.id)}
+          />
+        </div>
+      </div>
+    </div>
+  );
 }
-const styles={
-    image:{
-        height:110, 
-        width:110,
-        borderRadius:4,
-        background:'grey'
-        
-    }
+
+const styles = {
+  image: {
+    height: 110,
+    width: 110,
+    borderRadius: 4,
+    background: '#ccc'
+  }
 }
+
 export default CartItem;
