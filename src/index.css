@@ -5,6 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://www.tendencias.kpmg.es/wp-content/uploads/2018/11/GettyImages-912949110.jpg");
+ 
+
+background-position:center;
+
+background-repeat: no-repeat;
+
+background-size:fill;
+
 }
 .cart-item {
   display: inline-flex;
@@ -23,4 +32,8 @@ body {
 }
 .action-icons:hover {
   cursor: pointer;
+}
+.cart {
+  display: flex;
+  flex-direction: column;
 }
